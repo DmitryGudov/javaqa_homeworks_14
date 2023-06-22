@@ -6,18 +6,18 @@ public class TicketTimeComparator implements Comparator<Ticket> {
 
     @Override
     public int compare(Ticket t1, Ticket t2) {
+
         int FlightTimeOne;
         int FlightTimeTwo;
 
-
         if ((t1.getTimeTo() - t1.getTimeFrom()) < 0) {
-            FlightTimeOne = 24 - (t1.getTimeTo() - t1.getTimeFrom());
+            FlightTimeOne = 24 - Math.abs(t1.getTimeTo() - t1.getTimeFrom());
         } else {
             FlightTimeOne = t1.getTimeTo() - t1.getTimeFrom();
         }
 
         if ((t2.getTimeTo() - t2.getTimeFrom()) < 0) {
-            FlightTimeTwo = 24 - (t2.getTimeTo() - t2.getTimeFrom());
+            FlightTimeTwo = 24 - Math.abs(t2.getTimeTo() - t2.getTimeFrom());
         } else {
             FlightTimeTwo = t2.getTimeTo() - t2.getTimeFrom();
         }
