@@ -87,12 +87,31 @@ public class AviaSoulsTest {
     }
 
     @Test
-    public void shouldSortArrayTicket() {
+    public void shouldSortArrayTicketFirst() {
         aviaSouls.add(ticket1);
         aviaSouls.add(ticket2);
         aviaSouls.add(ticket3);
 
         Ticket[] expected = {ticket2, ticket3, ticket1};
+        Ticket[] actual = aviaSouls.search("Krasnodar", "Sochi");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSortArrayTicketSecond() {
+        aviaSouls.add(ticket2);
+
+        Ticket[] expected = {ticket2};
+        Ticket[] actual = aviaSouls.search("Krasnodar", "Sochi");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSortArrayTicketThird() {
+
+        Ticket[] expected = {};
         Ticket[] actual = aviaSouls.search("Krasnodar", "Sochi");
 
         Assertions.assertArrayEquals(expected, actual);
